@@ -147,10 +147,10 @@ def newton_method(f, a, b, eps=1e-6, max_iter=100):
 
         log.append((x, f(x), df_dx, x_new, abs(x_new - x)))
 
-        x = x_new
-
         if abs(f(x)) < eps:
             return log
+
+        x = x_new
 
     raise RuntimeError("Method did not converge within the maximum number of iterations")
 
