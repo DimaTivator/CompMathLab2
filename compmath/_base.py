@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-import _criterion
+import compmath._criterion as _criterion
 
 
 class BasicSolver(ABC):
