@@ -4,3 +4,5 @@ from ._equation import (
     chord_method,
     newton_method,
 )
+
+from ._sonle import *
