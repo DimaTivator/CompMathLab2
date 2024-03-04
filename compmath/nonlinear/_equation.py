@@ -87,12 +87,12 @@ def bin_search(f, a, b, eps=1e-6, max_iter=100):
 
     for _ in range(max_iter):
         m = (a + b) / 2
+        log.append((a, b, m, f(a), f(b), f(m), b - a))
+
         if f(m) * start < 0:
             b = m
         else:
             a = m
-
-        log.append((a, b, m, f(a), f(b), f(m), b - a))
 
         if abs(f(m)) < eps:
             return log
