@@ -5,4 +5,4 @@ from ._equation import (
     newton_method,
 )
 
-from ._sonle import *
+from ._nle import *
