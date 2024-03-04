@@ -2,7 +2,7 @@ import math
 
 
 def f1(x):
-    return 2 * x ** 3 + 4 * x ** 2 - 5 * x + 7
+    return 2 * x ** 3 + 4 * x ** 2 - 5 * x - 8
 
 
 def phi1(x):
