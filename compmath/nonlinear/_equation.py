@@ -20,7 +20,7 @@ def simple_iteration(phi, f, a, b, eps=1e-6, max_iter=100):
         raise ValueError("Method is not applicable on this interval")
 
     x_prev = a
-    log = []
+    log = [('x_k', 'x_k+1', 'phi(x_k+1)', 'f(x_k+1)', '|x_k+1 - x_k|')]
 
     for _ in range(max_iter):
         x_new = phi(x_prev)
@@ -52,7 +52,7 @@ def chord_method(f, a, b, eps=1e-6, max_iter=100):
 
     x0 = a
     x1 = b
-    log = []
+    log = [('x0', 'x1', 'x2', 'f(x0)', 'f(x1)', 'f(x2)', 'x1 - x0')]
 
     for _ in range(max_iter):
         x2 = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))
@@ -82,7 +82,7 @@ def bin_search(f, a, b, eps=1e-6, max_iter=100):
     if f(a) * f(b) >= 0:
         raise ValueError("Method is not applicable on this interval")
 
-    log = []
+    log = [('a', 'b', 'm', 'f(a)', 'f(b)', 'f(m)', 'b - a')]
     start = f(a)
 
     for _ in range(max_iter):
@@ -103,11 +103,9 @@ def bin_search(f, a, b, eps=1e-6, max_iter=100):
 def _is_sign_constant(f, a, b):
     grid = np.linspace(a, b, 100)
     sign = f(a) > 0
-    print(sign)
 
     for x in grid:
         if (f(x) > 0) != sign:
-            print(x, f(x))
             return False
 
     return True
@@ -137,7 +135,7 @@ def newton_method(f, a, b, eps=1e-6, max_iter=100):
 
     x = (a + b) / 2
 
-    log = []
+    log = [('x_k', 'f(x_k)', "f'(x_k)", 'x_k+1', '|x_new - x|')]
 
     for _ in range(max_iter):
         df_dx = derivative_at_point(f, x)
