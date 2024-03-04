@@ -2,6 +2,18 @@ from compmath._base import BasicSolver
 from compmath.nonlinear import bin_search, newton_method, chord_method, simple_iteration
 
 
+def count_solutions(f, a, b):
+    step = (b - a) / 1000
+    cnt = 0
+
+    for i in range(999):
+        x0 = a + i * step
+        x1 = a + (i + 1) * step
+        cnt += f(x0) * f(x1) < 0
+
+    return cnt
+
+
 class NLESolver(BasicSolver):
     def __init__(
             self,
@@ -23,6 +35,13 @@ class NLESolver(BasicSolver):
         method = kwargs['method']
         a = kwargs['a']
         b = kwargs['b']
+
+        solutions_cnt = count_solutions(func, a, b)
+        if solutions_cnt > 1:
+            raise ValueError('There are multiple solutions on the given segment')
+
+        if solutions_cnt == 0:
+            raise ValueError('There is no solution the given segment')
 
         if method == 'simple_iteration':
             phi = kwargs['phi']

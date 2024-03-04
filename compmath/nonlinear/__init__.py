@@ -6,3 +6,7 @@ from ._equation import (
 )
 
 from ._nle import *
+
+from ._sonle import (
+    simple_iteration_2d,
+)

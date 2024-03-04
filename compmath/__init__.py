@@ -4,8 +4,5 @@ from ._criterion import (
     # discrepancy_diff
 )
 
-from ._sole import (
-    SoleData,
-    SimpleIterationSolver,
-)
+from ._sole import *
 

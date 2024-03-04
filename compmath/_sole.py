@@ -116,3 +116,19 @@ class SimpleIterationSolver(BasicSolver):
                 break
 
         return res
+
+
+def cramer_2d(coefficients, constants):
+    coefficients_matrix = Matrix(coefficients)
+    denominator = coefficients_matrix.det()
+
+    if denominator == 0:
+        return None
+
+    x_matrix = Matrix([constants[:], [coefficients[1][0], coefficients[1][1]]])
+    y_matrix = Matrix([[coefficients[0][0], coefficients[0][1]], constants[:]])
+
+    x = x_matrix.det() / denominator
+    y = y_matrix.det() / denominator
+
+    return x, y
