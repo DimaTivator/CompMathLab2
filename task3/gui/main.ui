@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>809</width>
-    <height>600</height>
+    <height>605</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>20</y>
+      <y>30</y>
       <width>811</width>
       <height>20</height>
      </rect>
@@ -56,14 +56,14 @@
    <widget class="QLabel" name="choose_eq_label">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>141</width>
-      <height>16</height>
+      <x>410</x>
+      <y>10</y>
+      <width>81</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Choose the equation</string>
+     <string>Choose file</string>
     </property>
    </widget>
    <widget class="QLabel" name="f1_label">
@@ -320,19 +320,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="choose_sys_label">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>40</y>
-      <width>141</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Choose the system</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="sys1_label">
     <property name="geometry">
      <rect>
@@ -566,6 +553,42 @@
       <width>41</width>
       <height>21</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="filename_input">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>10</y>
+      <width>191</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="browse_button">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>40</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>browse</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="load_button">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>40</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>load</string>
     </property>
    </widget>
   </widget>

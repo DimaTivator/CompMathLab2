@@ -111,6 +111,45 @@ class App(QMainWindow):
         self.solve_nle_button.clicked.connect(self.solve_nle)
         self.solve_sonle_button.clicked.connect(self.solve_sonle)
 
+        # browse files
+        self.browse_button.clicked.connect(self.browse_files)
+
+        # load file button
+        self.load_button.clicked.connect(self.load_file)
+
+    def browse_files(self):
+        file_filter = "Text files *.txt"
+        fname = QFileDialog.getOpenFileName(self, 'Open file', '', file_filter)
+        self.filename_input.setText(fname[0])
+
+    def load_file(self):
+        global eps_nle, eps_sonle, a, b, init_approx
+
+        fname = self.filename_input.text()
+
+        try:
+            with open(fname, 'r') as f:
+                num1, num2, num3 = f.readlines()[0].split()
+                a, init_approx[0] = num1, num1
+                b, init_approx[1] = num2, num2
+                eps_nle, eps_sonle = num3, num3
+
+                self.a_line_edit.setText(a)
+                self.b_line_edit.setText(b)
+                self.eps_line_edit.setText(eps_nle)
+
+                self.x_approx_sys_line_edit.setText(init_approx[0])
+                self.y_approx_sys_line_edit.setText(init_approx[1])
+                self.eps_sonle_line_edit.setText(eps_sonle)
+
+        except FileNotFoundError:
+            QMessageBox.warning(self, 'Error', 'File not found')
+            return
+
+        except Exception as e:
+            QMessageBox.warning(self, 'Error',
+                                f'{str(e)}\nInvalid file format. Read the documentation for more information.')
+
     def parse_a(self):
         global a
 
